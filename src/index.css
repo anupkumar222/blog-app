@@ -11,3 +11,55 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* custom css */
+
+/* general */
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.item-center {
+  align-items: center;
+}
+
+/* header part */
+
+.brand {
+  text-decoration: none;
+}
+
+h1 { 
+  font-weight: 700;
+  color: green;
+}
+
+.nav-menu {
+  width: 40%;
+}
+
+.nav-item {
+  width: 100%;
+  font-size: 1.2rem;
+  margin-left: 1.5rem;
+ 
+  list-style: none;
+}
+.nav-item a {
+  color: grey;
+  text-decoration: none;
+}
+.active {
+  color: black;
+}
+
