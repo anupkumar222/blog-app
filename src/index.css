@@ -55,11 +55,84 @@ h1 {
  
   list-style: none;
 }
+.nav-item :hover {
+  color: green;
+}
 .nav-item a {
   color: grey;
   text-decoration: none;
 }
 .active {
-  color: black;
+  color: green;
 }
 
+/* signup */
+
+.form {
+  width: 50%;
+  margin: 2rem auto;
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #55595c;
+  background-color: #fff;
+  background-image: none;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 0.25rem;margin-bottom: 2rem;
+}
+
+.form-control-lg {
+  padding: 0.75rem 1.5rem;
+    font-size: 1.25rem;
+    border-radius: 0.3rem;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #5cb85c;
+}
+.btn-lg, .btn-group-lg>.btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.25rem;
+  border-radius: 0.3rem;
+}
+.btn {
+  line-height: 1.25;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.pull-xs-right {
+  float: right!important;
+}
+
+
+/* login page */
+
+.page {
+  align-items: center;
+}
+
+a{
+  text-decoration: none;
+}
+.login-link {
+  color: green;
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: 300;
+  color: black;
+}

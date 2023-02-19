@@ -11,18 +11,18 @@ function Header() {
         <nav>
             <ul className="flex item-center nav-menu">
                 <li className="nav-item">
-                    <NavLink className="active" href="/">
+                    <NavLink activeClassName="active" to="/" exact>
                         Home
                     </NavLink>
                 </li>
                 <li className="nav-item">
-                    <NavLink href="/signup">Signup</NavLink>
+                    <NavLink activeClassName="active" to="/signup">Signup</NavLink>
                 </li>
                 <li className="nav-item">
-                    <NavLink href="/Login">Login</NavLink>
+                    <NavLink activeClassName="active" to="/login">Login</NavLink>
                 </li>
             </ul>
-        </nav>
+        </nav> 
     </div>
 
 </header>
