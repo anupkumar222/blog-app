@@ -137,7 +137,6 @@ h2 {
   color: black;
 }
 main {
-  /* width: 80%; */
   margin: 2rem auto;
 }
 .banner {
@@ -155,6 +154,9 @@ main {
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 2.3rem;
   color: white;
+}
+.section {
+  width: 70%;
 }
