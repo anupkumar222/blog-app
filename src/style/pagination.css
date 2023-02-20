@@ -24,8 +24,21 @@
 }
 li {
     list-style: none;
+   
 }
-li :hover {
+.page-box :hover {
     background-color: #5cb85c;
     color: white;
+}
+.active-page {
+    background-color:#5cb85c;
+    color: white;
+}
+.prev {
+    cursor: pointer;
+    text-decoration: underline;
+}
+ul {
+    align-items: center;
+    justify-content: center;
 }

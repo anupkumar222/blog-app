@@ -1,0 +1,54 @@
+.icon {
+display: flex;
+}
+.info {
+    display: block;
+    margin-left: 1rem;
+}
+.info p {
+    margin-top: 0;
+}
+.article-meta {
+    margin-top: 1rem;
+}
+.author {
+    color: green;
+}
+.date {
+    font-size: 0.8rem;
+    color: grey;
+}
+
+button {
+    padding: 0.4rem;
+}
+.btn-sm {
+color: green;
+}
+h4 {
+    font-size: 1.5rem;
+    color: black;
+    font-weight: 400;  
+    margin: 1rem 0;
+}
+p {
+    color: grey;
+}
+.tag-default {
+    background-color: white;
+    color: grey;
+    border: 0.2px solid grey;
+    border-radius: 14px;
+    padding: 0.1rem 1rem;
+    margin-left: 0.5rem;
+}
+span {
+    color: grey;
+    font-size: 0.8rem;
+}
+.article-preview {
+    margin: 2rem 0;
+}
+/* .tag-list {
+    width: 1%;
+} */

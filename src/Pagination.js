@@ -1,18 +1,35 @@
 import "./style/pagination.css"
 
-function Pagination() {
-    let pageNo = [];
-for (var i = 1; i <= 20; i++) {
-   pageNo.push(i);
+function Pagination(props) {
+let {articlesCount, articlesPerPage, activePageIndex, updateCurrentPageIndex} = props
+let numberOfPages = Math.ceil(articlesCount / articlesPerPage)
+let pagesArray = [];
+
+
+for(let i = 1; i <= numberOfPages; i++) {
+    pagesArray.push(i)
 }
-console.log(pageNo)
+
     return(
         <ul className="flex justify-between">
-            {pageNo.map((page, index) => (
-                <li key={index}>
-                    <a href="/" className="page-link">{page}</a>
+            <p
+            className="prev"
+            onClick={() => updateCurrentPageIndex(activePageIndex -1 < 1 ? 1 : activePageIndex -1)} 
+            ><i className="fa-solid fa-backward"></i> Prev
+                </p>
+            {pagesArray.map((page) => (
+                <li  className="page-box">
+                    <span onClick={() => updateCurrentPageIndex(page)} 
+                    className={`${activePageIndex === page ? "active-page page-link" : "page-link"}`}>
+                        {page}
+                        </span>
                 </li>
             ))}
+              <p
+              className="prev"
+            onClick={() => updateCurrentPageIndex(
+                activePageIndex + 1 > numberOfPages ? numberOfPages : activePageIndex + 1)} 
+            > Next <i className="fa-solid fa-forward"></i></p>
         </ul>
     )
 }

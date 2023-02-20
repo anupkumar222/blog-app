@@ -32,6 +32,9 @@ code {
 .item-center {
   align-items: center;
 }
+.wrap {
+  flex-wrap: wrap;
+}
 
 /* header part */
 

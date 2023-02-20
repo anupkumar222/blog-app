@@ -1,0 +1,21 @@
+.tags {
+    background-color: seashell;
+    width: 300px;
+    height: 400px;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+.tag {
+    background-color:grey;
+    padding: 0.3rem 1rem;
+    border-radius: 15px;
+    color: white;
+    margin: 0.5rem;
+    cursor: pointer;
+}
+
+.sidebar-h2{
+    font-size: 1.5rem;
+}
+

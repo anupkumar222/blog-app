@@ -9,15 +9,15 @@ function Signup() {
             </center>
             <form className="form">
                 
-                    <input type="text" placeholder="Your Name" class="form-control form-control-lg" value="" />
+                    <input type="text" placeholder="Your Name" className="form-control form-control-lg" value="" />
                 
                 
-                    <input type="text" placeholder="Email" class="form-control form-control-lg" value="" />
+                    <input type="text" placeholder="Email" className="form-control form-control-lg" value="" />
                 
                 
-                    <input type="password" placeholder="Password" class="form-control form-control-lg" value="" />
+                    <input type="password" placeholder="Password" className="form-control form-control-lg" value="" />
                 
-                <button class="btn btn-lg btn-primary pull-xs-right">Sign up</button>
+                <button className="btn btn-lg btn-primary pull-xs-right">Sign up</button>
             </form>
 
 
