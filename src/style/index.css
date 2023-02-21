@@ -16,6 +16,11 @@ code {
 
 /* general */
 
+.container-sm {
+  width: 50%;
+  margin: 0 auto;
+}
+
 .container {
   width: 80%;
   margin: 0 auto;
@@ -162,4 +167,11 @@ h3 {
 }
 .section {
   width: 70%;
+}
+.error {
+  color: red;
+  text-align: center;
+}
+input[type="submit"]:disabled {
+  background: #dddddd;
 }
