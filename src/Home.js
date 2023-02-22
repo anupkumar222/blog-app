@@ -13,7 +13,7 @@ class Home extends React.Component {
         articlesCount: 0,
         articlesPerPage: 10,
         activePageIndex: 1,
-        activeTab: "node"
+        activeTab: ""
     }
 
     removeTab = () => {

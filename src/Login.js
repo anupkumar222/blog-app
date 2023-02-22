@@ -1,17 +1,54 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { loginURL } from "./utils/constant"
 import Validation from "./utils/validation"
+import { withRouter } from "react-router-dom"
 
 
 class Login extends React.Component {
 
     state= {
-        email: "",
-        password: "",
+        email: "kanup7737@gmail.com",
+        password: "qwerty123",
         errors: {
             email: "",
             password: ""
         }
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+        const { email, password} = this.state
+        fetch(loginURL, {
+            method: 'POST',
+            headers: {
+                'Content-Type' : 'application/json',
+            },
+            body: JSON.stringify({ user: { email, password}})
+        })
+        .then((res) => {
+            if(!res.ok) {
+                res.json().then(({errors}) => 
+                this.setState((prevState => {
+                    return {
+                        ...prevState,
+                        errors: {
+                            ...prevState.errors,
+                            email: 'Email or Passowrd is incorrect!'
+                        }
+                    }
+                })))
+                throw new Error('Login is not successful')
+            }
+            return res.json()
+        })
+        .then(({user}) => {
+            this.props.updateUser(user)
+            this.setState({ email: "", password: "" })
+            this.props.history.push('/')
+        })
+        .catch((error) => 
+            console.log('error'))
     }
 
     handleChange =(event) => {
@@ -23,9 +60,6 @@ class Login extends React.Component {
         this.setState({ [name]: value, errors })
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault()
-    }
 
     render() {
         let {email, password, errors} = this.state
@@ -41,7 +75,7 @@ class Login extends React.Component {
                                 </p>
                             </center>
     
-                            <form>
+                            <form onSubmit={this.handleSubmit}>
                             <span className="error">{errors.email}</span>
                                 <input 
                                 name="email"
@@ -78,4 +112,4 @@ class Login extends React.Component {
    
 }
 
-export default Login
+export default withRouter(Login)

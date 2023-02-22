@@ -1,5 +1,7 @@
 import React from "react"
+import { signupURL } from "./utils/constant"
 import Validation from "./utils/validation"
+import { withRouter } from "react-router"
 
 
 class Signup extends React.Component {
@@ -23,6 +25,28 @@ class Signup extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
+        const {username, email, password} = this.state
+        fetch(signupURL, {
+            method: 'POST',
+            headers: {
+                'Content-Type' : 'application/json',
+            },
+            body: JSON.stringify({ user: {username, email, password}})
+        })
+        .then((res) => {
+            if(!res.ok) {
+                res.json().then(({errors}) => this.setState({ errors }))
+                throw new Error('Fetch not successful')
+            }
+            return res.json()
+        })
+        .then(({user}) => {
+            this.props.updateUser(user)
+            this.setState({username: "", email: "", password: "" })
+            this.props.history.push('/')
+        })
+        .catch((error) => 
+            console.log('error'))
     }
     render() {
         let {username, email, password, errors} = this.state
@@ -32,7 +56,10 @@ class Signup extends React.Component {
                     <h2>Sign up</h2>
                     <p>Have an account?</p>
                 </center>
-                <form className="form">
+                <form 
+                className="form"
+                onSubmit={this.handleSubmit}
+                >
                 <span className="error">{errors.username}</span>
                         <input 
                         name="username"
@@ -78,4 +105,4 @@ class Signup extends React.Component {
    
 }
 
-export default Signup
+export default withRouter(Signup)

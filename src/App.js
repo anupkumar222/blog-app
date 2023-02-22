@@ -8,32 +8,50 @@ import NoMatch from "./NoMatch"
 import SinglePost from "./SinglePost"
 
 
-function App() {
-    return (
-        <>
-            <Header />
-            <Switch>
-                <Route path="/" exact>
-                    <Home />
-                </Route>
-                <Route path="/signup">
-                    <Signup />
-                </Route>
-                <Route path="/login">
-                    <Login />
-                </Route>
-                <Route path="/article/:slug" component={SinglePost}>
-                </Route>
-                <Route path="*">
-                    <NoMatch />
-                </Route>
-            </Switch>
+class App extends React.Component {
+    state = {
+        isLoggedIn: false,
+        user: null
+    }
 
+updateUser = (user) => {
+    this.setState({
+        isLoggedIn: true,
+        user
+    })
+}
 
-
-
-        </>
-    )
+    render() {
+        return (
+            <>
+                <Header 
+                isLoggedIn={this.state.isLoggedIn} 
+                user={this.state.user}
+                />
+                <Switch>
+                    <Route path="/" exact>
+                        <Home />
+                    </Route>
+                    <Route path="/signup">
+                        <Signup updateUser={this.updateUser} />
+                    </Route>
+                    <Route path="/login">
+                        <Login updateUser={this.updateUser} />
+                    </Route>
+                    <Route path="/article/:slug" component={SinglePost}>
+                    </Route>
+                    <Route path="*">
+                        <NoMatch />
+                    </Route>
+                </Switch>
+    
+    
+    
+    
+            </>
+        )
+    }
+  
 }
 
 export default App;
