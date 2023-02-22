@@ -12,7 +12,15 @@ class Home extends React.Component {
         error: "",
         articlesCount: 0,
         articlesPerPage: 10,
-        activePageIndex: 1
+        activePageIndex: 1,
+        activeTab: "node"
+    }
+
+    removeTab = () => {
+        this.setState({ activeTab: "" })
+    }
+   addTab = (value) => {
+        this.setState({ activeTab: value })
     }
     
     componentDidMount() {
@@ -20,8 +28,8 @@ class Home extends React.Component {
     }
     
     componentDidUpdate(_prevProps, prevState) {
-        console.log(prevState.activePageIndex,"props", this.state.activePageIndex, "state")
-        if(prevState.activePageIndex !== this.state.activePageIndex) {
+        if(prevState.activePageIndex !== this.state.activePageIndex
+            || prevState.activeTab !== this.state.activeTab) {
             this.fetchData()
         }
     }
@@ -29,8 +37,9 @@ class Home extends React.Component {
     fetchData = () => {
         const limit = this.state.articlesPerPage;
         const offset = (this.state.activePageIndex - 1) * limit;
+        const tag = this.state.activeTab
 
-        fetch(articlesURL + `/?offset=${offset}&limit=${limit}`)
+        fetch(articlesURL + `/?offset=${offset}&limit=${limit}` + (tag && `&tag=${tag}`))
         .then((res) => {
             if(!res.ok) {
                 throw new Error(res.statusText);
@@ -56,13 +65,16 @@ class Home extends React.Component {
     }
 
     render() {
-        const {articles, error, articlesCount, articlesPerPage, activePageIndex} = this.state;
+        const {articles, error, articlesCount, articlesPerPage, activePageIndex, activeTab} = this.state;
         return(
             <main>
                 <Banner />
                 <div className="container flex justify-between">
                     <div className="section ">
-                    <FeedNav />
+                    <FeedNav
+                    activeTab={activeTab}
+                    removeTab={this.removeTab}
+                    />
                     <Posts 
                     articles={articles}
                     error={error}
@@ -74,7 +86,9 @@ class Home extends React.Component {
                     updateCurrentPageIndex={this.updateCurrentPageIndex}
                     />
                     </div>
-                    <Sidebar />
+                    <Sidebar 
+                    addTab={this.addTab}
+                    />
                 </div>
             </main>
         )

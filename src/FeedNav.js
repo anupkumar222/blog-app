@@ -1,13 +1,29 @@
+import { Link } from "react-router-dom"
 import "./style/feedNav.css"
 
 
-function FeedNav() {
+function FeedNav(props) {
     return (
         <ul className="nav nav-pills outline-active">
-            <li className="nav-item">
-                <a href="/" className="nav-link active">Global Feed</a>
+            <li 
+            className="nav-item"
+            onClick={props.removeTab} 
+            >
+                <Link to='/'
+                
+                className={props.activeTab === "" && "nav-link active"}>
+                    Global Feed
+                </Link>
             </li>
-            <hr/>
+            {props.activeTab && (
+                <li className="nav-item">
+                    <Link to='/' 
+                    className={props.activeTab && "nav-link active"}>
+                        # {props.activeTab}
+                    </Link>
+                </li>
+            )}
+            <hr className="hr" />
         </ul>
     )
 }

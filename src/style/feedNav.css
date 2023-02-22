@@ -2,6 +2,7 @@
     padding-left: 0;
     margin-bottom: 0;
     list-style: none;
+    display: flex;
 }
 .nav-pills .nav-item {
     float: left;
@@ -19,4 +20,7 @@
 }
 .nav-link.active  {
     cursor: default;
+}
+.nav-item {
+    width: 200px;
 }

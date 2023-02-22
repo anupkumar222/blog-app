@@ -5,7 +5,7 @@ function Header() {
     return (
 <header className="navbar">
     <div className="container flex justify-between item-center">
-        <NavLink className="brand" href="/">
+        <NavLink className="brand" to="/">
             <h1>Conduit</h1>
         </NavLink>
         <nav>

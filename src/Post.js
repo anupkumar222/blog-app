@@ -1,18 +1,25 @@
 import "./style/post.css"
 import React from "react";
+import {Link} from "react-router-dom"
 
 function Post(props) {
-    const {author, createdAt, favoritesCount, title, description, tagList} = props;
+    const {author, createdAt, favoritesCount, title, description, tagList, slug} = props;
     return (
         <div>
             <div className="article-preview">
                 <div className="article-meta flex justify-between">
                     <div className="icon">
-                        <a href="/@Anah Benešová">
-                            <img src={author.image || <i class="fa-regular fa-face-smile"></i>} alt={author.username} />
-                        </a>
+                        <Link to="/">
+                            <img 
+                            src={author.image || 
+                            <i class="fa-regular fa-face-smile">
+                            </i>
+                        } 
+                        alt={author.username} 
+                        />
+                        </Link>
                         <div className="info">
-                            <a className="author" href="/@Anah Benešová">{author.username}</a>
+                            <Link className="author" to="/">{author.username}</Link>
                             <p className="date">{createdAt}</p>
                         </div>
                     </div>
@@ -22,11 +29,11 @@ function Post(props) {
                             <i className="fa-solid fa-heart"></i> {favoritesCount} </button>
                     </div>
                 </div>
-                <a className="preview-link" href="/article/Try-to-transmit-the-HTTP-card-maybe-it-will-override-the-multi-byte-hard-drive!-120863">
+                <Link className="preview-link" to={`/article/${slug}`}>
                     <h4>{title}</h4>
                     <p>{description}</p>
                     <div className="flex justify-between">
-                        <div>Read more...</div>
+                        <Link to={`/article/${slug}`}>Read more...</Link>
                         <ul className="tag-list flex justify-between">
                         {tagList.map((tag) => (
                         <li className="tag-default">{tag}</li>
@@ -34,7 +41,7 @@ function Post(props) {
                          </ul>
                     </div>
 
-                </a>
+                </Link>
             </div>
         </div>
     )

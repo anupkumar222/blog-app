@@ -42,7 +42,10 @@ class Sidebar extends React.Component {
                <h2 className="sidebar-h2">Popular Tags</h2>
                <div className="parent-tag flex wrap">
                {tags.map((tag) => (
-                <div className="tag">{tag}</div>
+                <div 
+                className="tag"
+                onClick={() => this.props.addTab(tag)}
+                >{tag}</div>
                ))} 
                </div>
             
