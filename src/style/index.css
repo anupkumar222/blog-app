@@ -25,6 +25,11 @@ code {
   width: 80%;
   margin: 0 auto;
 }
+.text-center {
+  margin-top: 3rem;
+  margin-left: 12rem;
+  /* text-align: center; */
+}
 
 .flex {
   display: flex;
@@ -85,7 +90,7 @@ h1 {
 }
 .form-control {
   display: block;
-  width: 100%;
+  width: 80%;
   padding: 0.5rem 0.75rem;
   font-size: 1rem;
   line-height: 1.25;

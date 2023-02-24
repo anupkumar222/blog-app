@@ -64,7 +64,10 @@ updateUser = (user) => {
                 user={this.state.user}
                 />
             {
-                this.state.isLoggedIn ? <AthenticatedApp /> : <UnAuthenticatedApp updateUser={this.updateUser}/>
+                this.state.isLoggedIn ? 
+              (  <AthenticatedApp user={this.state.user} />
+               ) : ( 
+               <UnAuthenticatedApp updateUser={this.updateUser} user={this.state.user} /> )
             }
     
     
@@ -76,14 +79,14 @@ updateUser = (user) => {
   
 }
 
-function AthenticatedApp () {
+function AthenticatedApp (props) {
 return(
     <Switch>
                     <Route path="/" exact>
                         <Home />
                     </Route>
                     <Route path="/newpost">
-                        < NewPost />
+                        < NewPost user={props.user}/>
                     </Route>
                     <Route path="/settings">
                         <Settings />
@@ -91,7 +94,8 @@ return(
                     <Route path="/profile">
                         <Profile />
                     </Route>
-                    <Route path="/article/:slug" component={SinglePost}>
+                    <Route path="/article/:slug" >
+                        <SinglePost user={props.user} />
                     </Route>
                     <Route path="*">
                         <NoMatch />
@@ -112,7 +116,8 @@ return (
                     <Route path="/login">
                         <Login updateUser={props.updateUser} />
                     </Route>
-                    <Route path="/article/:slug" component={SinglePost}>
+                    <Route path="/article/:slug" >
+                        <SinglePost user={props.user} />
                     </Route>
                     <Route path="*">
                         <NoMatch />

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import "./style/singlePost.css";
 import { articlesURL } from "./utils/constant";
 import Loader from "./Loader";
@@ -77,20 +77,24 @@ render() {
                 </div>
                 
             </header>
-            <div className="container">
+            <div className="container padding">
                 <div className="desc">
                 {article.body}
                 </div>
             </div>
-            <footer>
-                <div className="footer-single padding container">
-                    <p>
-                        <Link to="/login">Login</Link> or 
-                        <Link to="/signup"> Signup </Link>
-                        to add comments on this article
-                    </p>
-                </div>
-            </footer>
+                        {this.props.user === null ? (
+                                        <footer>
+                                        <div className="footer-single padding container">
+                                            <p>
+                                                <Link to="/login">Login</Link> or 
+                                                <Link to="/signup"> Signup </Link>
+                                                to add comments on this article
+                                            </p>
+                                        </div>
+                                    </footer>
+                        ) : (
+                            ''
+                        )}
         </article>
     )
 }
@@ -98,4 +102,4 @@ render() {
     
 
 
-export default SinglePost;
+export default withRouter(SinglePost);
