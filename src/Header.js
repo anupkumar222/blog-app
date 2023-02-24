@@ -49,17 +49,17 @@ function AuthHeader() {
                 </NavLink>
             </li>
             <li className="nav-item">
-                <NavLink activeClassName="active" to="/signup">
-                 New Post   
+                <NavLink activeClassName="active" to="/newpost">
+                 New_Post  
                 </NavLink>
             </li>
             <li className="nav-item">
-                <NavLink activeClassName="active" to="/login">
+                <NavLink activeClassName="active" to="/settings">
                 Settings
                 </NavLink>
             </li>
             <li className="nav-item">
-                <NavLink activeClassName="active" to="/login">
+                <NavLink activeClassName="active" to="/profile">
                 Profile
                 </NavLink>
             </li>

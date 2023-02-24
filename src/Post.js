@@ -20,7 +20,7 @@ function Post(props) {
                         </Link>
                         <div className="info">
                             <Link className="author" to="/">{author.username}</Link>
-                            <p className="date">{createdAt}</p>
+                            <p className="date-post">{createdAt}</p>
                         </div>
                     </div>
 

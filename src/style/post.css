@@ -14,7 +14,7 @@ display: flex;
 .author {
     color: green;
 }
-.date {
+.date-post {
     font-size: 0.8rem;
     color: grey;
 }
@@ -49,6 +49,3 @@ span {
 .article-preview {
     margin: 2rem 0;
 }
-/* .tag-list {
-    width: 1%;
-} */

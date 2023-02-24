@@ -35,8 +35,9 @@ class Signup extends React.Component {
         })
         .then((res) => {
             if(!res.ok) {
-                res.json().then(({errors}) => this.setState({ errors }))
-                throw new Error('Fetch not successful')
+               return res.json().then(({errors}) => {
+                return Promise.reject(errors)
+                })
             }
             return res.json()
         })
@@ -45,8 +46,9 @@ class Signup extends React.Component {
             this.setState({username: "", email: "", password: "" })
             this.props.history.push('/')
         })
-        .catch((error) => 
-            console.log('error'))
+        .catch((errors) => 
+            this.setState({errors})
+            )
     }
     render() {
         let {username, email, password, errors} = this.state

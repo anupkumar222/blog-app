@@ -8,8 +8,8 @@ import { withRouter } from "react-router-dom"
 class Login extends React.Component {
 
     state= {
-        email: "kanup7737@gmail.com",
-        password: "qwerty123",
+        email: "",
+        password: "",
         errors: {
             email: "",
             password: ""
@@ -28,27 +28,26 @@ class Login extends React.Component {
         })
         .then((res) => {
             if(!res.ok) {
-                res.json().then(({errors}) => 
-                this.setState((prevState => {
-                    return {
-                        ...prevState,
-                        errors: {
-                            ...prevState.errors,
-                            email: 'Email or Passowrd is incorrect!'
-                        }
-                    }
-                })))
-                throw new Error('Login is not successful')
+               return res.json().then(({errors}) => {
+                return Promise.reject(errors)
+               })
             }
             return res.json()
         })
         .then(({user}) => {
             this.props.updateUser(user)
-            this.setState({ email: "", password: "" })
             this.props.history.push('/')
         })
         .catch((error) => 
-            console.log('error'))
+        this.setState((prevState => {
+            return {
+                ...prevState,
+                errors: {
+                    ...prevState.errors,
+                    email: 'Email or Passowrd is incorrect!'
+                }
+            }
+        })))
     }
 
     handleChange =(event) => {
