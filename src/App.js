@@ -44,6 +44,12 @@ class App extends React.Component {
         }
     }
 
+    setIsLoggedIn =(value) => {
+        this.setState({
+            isLoggedIn: value
+        })
+    }
+
 updateUser = (user) => {
     this.setState({
         isLoggedIn: true,
@@ -65,7 +71,11 @@ updateUser = (user) => {
                 />
             {
                 this.state.isLoggedIn ? 
-              (  <AthenticatedApp user={this.state.user} />
+              (  <AthenticatedApp 
+                user={this.state.user}
+                updateUser={this.updateUser}
+                setIsLoggedIn={this.setIsLoggedIn}
+                />
                ) : ( 
                <UnAuthenticatedApp updateUser={this.updateUser} user={this.state.user} /> )
             }
@@ -89,10 +99,12 @@ return(
                         < NewPost user={props.user}/>
                     </Route>
                     <Route path="/settings">
-                        <Settings />
+                        <Settings user={props.user}
+                           updateUser={props.updateUser}
+                           setIsLoggedIn={props.setIsLoggedIn} />
                     </Route>
                     <Route path="/profile">
-                        <Profile />
+                        <Profile user={props.user}/>
                     </Route>
                     <Route path="/article/:slug" >
                         <SinglePost user={props.user} />

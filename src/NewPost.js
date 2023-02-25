@@ -1,4 +1,5 @@
 import React from "react"
+import { withRouter } from "react-router-dom"
 import { articlesURL } from "./utils/constant"
 
 class NewPost extends React.Component {
@@ -44,7 +45,7 @@ class NewPost extends React.Component {
                     return res.json().then(({errors}) => {
                         return Promise.reject(errors)
                         })
-                    // throw new Error('Can not create new article!')
+                  
                 }
                 return res.json()
             })
@@ -76,7 +77,7 @@ class NewPost extends React.Component {
                 <div class="container page">
                     <div class="row">
                         <div class="col-md-10 offset-md-1 col-xs-12">
-                            <form className="text-center">
+                            <form className="newpost-form">
 
                             <span className="error">{errors.title}</span>
                                 <input
@@ -133,4 +134,4 @@ class NewPost extends React.Component {
 
 }
 
-export default NewPost
+export default withRouter(NewPost)

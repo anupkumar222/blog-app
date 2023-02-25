@@ -1,23 +1,25 @@
 import "./style/post.css"
 import React from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 function Post(props) {
-    const {author, createdAt, favoritesCount, title, description, tagList, slug} = props;
+    const { author, createdAt, favoritesCount, title, description, tagList, slug } = props;
     return (
         <div>
             <div className="article-preview">
                 <div className="article-meta flex justify-between">
                     <div className="icon">
+                    <figure className="profile-img">
                         <Link to="/">
-                            <img 
-                            src={author.image || 
-                            <i class="fa-regular fa-face-smile">
-                            </i>
-                        } 
-                        alt={author.username} 
-                        />
+                            
+                                <img
+                                    src={author.image || `/smiley.jpg`
+                                    }
+                                    alt={author.username}
+                                />
+                            
                         </Link>
+                        </figure>
                         <div className="info">
                             <Link className="author" to="/">{author.username}</Link>
                             <p className="date-post">{createdAt}</p>
@@ -35,14 +37,15 @@ function Post(props) {
                     <div className="flex justify-between">
                         <Link to={`/article/${slug}`}>Read more...</Link>
                         <ul className="tag-list flex justify-between">
-                        {tagList.map((tag) => (
-                        <li className="tag-default">{tag}</li>
-                        ))}
-                         </ul>
+                            {tagList.map((tag) => (
+                                <li className="tag-default">{tag}</li>
+                            ))}
+                        </ul>
                     </div>
 
                 </Link>
             </div>
+            <hr/>
         </div>
     )
 }

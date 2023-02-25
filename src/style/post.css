@@ -3,7 +3,8 @@ display: flex;
 }
 .info {
     display: block;
-    margin-left: 1rem;
+    margin-top: 1rem;
+    /* margin-left: 1rem; */
 }
 .info p {
     margin-top: 0;
@@ -13,6 +14,7 @@ display: flex;
 }
 .author {
     color: green;
+   
 }
 .date-post {
     font-size: 0.8rem;

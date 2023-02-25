@@ -11,7 +11,7 @@ class SinglePost extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props)
+        
         let slug = this.props.match.params.slug;
 
             fetch(articlesURL + '/' + slug)

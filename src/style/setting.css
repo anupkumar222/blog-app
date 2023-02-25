@@ -1,0 +1,13 @@
+.padding {
+    padding: 2rem;
+}
+.padding-left {
+    padding-left: 7rem;
+}
+.btn-setting {
+    align-items: center;
+    background-color: rgb(162, 66, 40);
+    padding: 1rem;
+    margin: 2rem;
+    color: white;
+}
