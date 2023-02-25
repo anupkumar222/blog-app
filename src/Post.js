@@ -1,6 +1,7 @@
 import "./style/post.css"
 import React from "react";
 import { Link } from "react-router-dom"
+import moment from "moment";
 
 function Post(props) {
     const { author, createdAt, favoritesCount, title, description, tagList, slug } = props;
@@ -22,7 +23,7 @@ function Post(props) {
                         </figure>
                         <div className="info">
                             <Link className="author" to="/">{author.username}</Link>
-                            <p className="date-post">{createdAt}</p>
+                            <p className="date-post"> {moment(createdAt).format('ddd MMM D YYYY')}</p>
                         </div>
                     </div>
 

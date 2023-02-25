@@ -1,0 +1,47 @@
+.comment-box {
+    width: 100%;
+    height: 150px;
+    padding: 1rem;
+}
+.cmnt-img {
+    width: 10%;
+    background-color: blue;
+}
+.sm-btn {
+    width: 47.6rem;
+    background-color: rgb(235, 223, 208);
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.post-btn {
+    width: 300px;
+    font-weight: 600;
+    color: white;
+    background-color: green;
+    border-radius: 5px;
+    border: none;
+}
+
+/* comment part */
+
+.second {
+    height: 50px;
+  }
+
+  .single-cmnt {
+background-color: aquamarine;
+padding: 1rem;    
+  }
+
+  .parent-box {
+    border: 2px solid whitesmoke;
+  }
+.del-btn {
+    background:none;
+    border: none;
+}
+.user {
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
