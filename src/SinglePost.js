@@ -37,6 +37,24 @@ class SinglePost extends React.Component {
         
     }
 
+    handleDelete = (slug) => {
+        fetch(articlesURL + '/' + slug, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Token ' + this.props.user.token,
+          },
+        })
+          .then((res) => {
+            if (!res.ok) {
+              return Promise.reject('Unable to delete!');
+            }
+          })
+          .then(() => {
+            this.props.history.push('/');
+          })
+          .catch((error) => this.setState({ error }));
+      };
 
 
 render() {
@@ -75,6 +93,26 @@ render() {
                             <time dateTime="" className="date">
                                 {moment(article.createdAt).format('ddd MMM D YYYY')}
                             </time>
+                                        {this.props.user &&
+            this.props.user.username === article.author.username ? (
+              <div>
+                <button className="my-post-btn ">
+                  <Link className="edit" to={`/edit-article/${slug}`}>
+                    <i class="fas fa-edit"></i> Edit Article
+                  </Link>
+                </button>
+                <button
+                  className="my-post-btn delete"
+                  onClick={() => {
+                    this.handleDelete(slug);
+                  }}
+                >
+                  <i class="fas fa-trash-alt"></i> Delete Article
+                </button>
+              </div>
+            ) : (
+              ''
+            )}
                         </div>
                     </div>
                 </div>

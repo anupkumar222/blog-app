@@ -30,3 +30,17 @@ p{
 .padding {
     padding: 3rem 0;
 }
+.my-post-btn {
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+    background-color: #333;
+    border: 1px solid grey;
+    padding: 0.5rem;
+    border-radius: 3px;
+}
+.delete {
+    color: red;
+}
+.edit {
+    color: whitesmoke;
+}
