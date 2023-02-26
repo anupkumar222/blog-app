@@ -72,12 +72,16 @@ class App extends React.Component {
                 {
                     this.state.isLoggedIn ?
                         (<AthenticatedApp
+                            isLoggedIn={this.state.isLoggedIn}
                             user={this.state.user}
                             updateUser={this.updateUser}
                             setIsLoggedIn={this.setIsLoggedIn}
                         />
                         ) : (
-                            <UnAuthenticatedApp updateUser={this.updateUser} user={this.state.user} />)
+                            <UnAuthenticatedApp
+                             updateUser={this.updateUser}
+                             isLoggedIn={this.state.isLoggedIn}
+                             user={this.state.user} />)
                 }
 
 
@@ -106,8 +110,13 @@ function AthenticatedApp(props) {
                     updateUser={props.updateUser}
                     setIsLoggedIn={props.setIsLoggedIn} />
             </Route>
-            <Route path="/profile">
+            {/* <Route path="/profile">
                 <Profile user={props.user} />
+            </Route> */}
+            <Route path="/profile/:username" exact>
+                <Profile user={props.user}
+                isLoggedIn={props.isLoggedIn}
+                />
             </Route>
             <Route path="/article/:slug" >
                 <SinglePost user={props.user} />
@@ -130,6 +139,11 @@ function UnAuthenticatedApp(props) {
             </Route>
             <Route path="/login">
                 <Login updateUser={props.updateUser} />
+            </Route>
+            <Route path="/profile/:username" exact>
+                <Profile 
+                 isLoggedIn={props.isLoggedIn}
+                user={props.user}/>
             </Route>
             <Route path="/article/:slug" >
                 <SinglePost user={props.user} />

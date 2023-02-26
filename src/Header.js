@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 function Header(props) {
-    console.log(props.isLoggedIn)
+    
     return (
 <header className="navbar">
     <div className="container flex justify-between item-center">
@@ -11,7 +11,7 @@ function Header(props) {
         </NavLink>
         
         {
-            props.isLoggedIn ? <AuthHeader /> : <NonAuthHeader />
+            props.isLoggedIn && props.user && props.user.username ? <AuthHeader username={props.user.username} /> : <NonAuthHeader />
         }
     </div>
 
@@ -39,7 +39,12 @@ function NonAuthHeader() {
     )
 }
 
-function AuthHeader() {
+class AuthHeader extends React.Component {
+   render() {
+
+    const username = this.props.username;
+
+    console.log(username, "undef")
     return(
         <nav className="nav-menu">
         <ul className="flex item-center nav-menu">
@@ -59,13 +64,15 @@ function AuthHeader() {
                 </NavLink>
             </li>
             <li className="nav-item">
-                <NavLink activeClassName="active" to="/profile">
-                Profile
+                <NavLink activeClassName="active" to={`/profile/${username}`}>
+                pprofile
                 </NavLink>
             </li>
         </ul>
     </nav> 
     )
+   }
+  
 }
 
 export default Header

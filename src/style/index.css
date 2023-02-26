@@ -197,7 +197,7 @@ input[type="submit"]:disabled {
 .follow p{
   display: flex;
   justify-content: space-between;
-
+  cursor: pointer;
   color: white;
   width: 180px;
   background-color: #5cb85c;

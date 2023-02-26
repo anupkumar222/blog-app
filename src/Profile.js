@@ -4,11 +4,12 @@ import Posts from "./Posts";
 import ProfileBanner from "./ProfileBanner"
 import { articlesURL } from "./utils/constant";
 import "./style/post.css"
+import { withRouter } from "react-router-dom";
 
 class Profile extends React.Component {
 
     state = {
-        activeTab: "my",
+        activeTab: "author",
         articles: []
     }
 
@@ -19,12 +20,12 @@ class Profile extends React.Component {
     }
 
     fetchData = () => {
-
-        fetch(articlesURL + `/?${this.state.activeTab}=${this.props.user.username}`, {
+        // console.log(this.props, "match")
+        fetch(articlesURL + `/?${this.state.activeTab}=${this.props.match.params.username}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                authorization: `Token ${this.props.user.token}`
+                authorization: this.props.isLoggedIn ? `Token ${this.props.user.token}` : ''
             },
         })
         .then((res) => {
@@ -34,7 +35,7 @@ class Profile extends React.Component {
             return res.json();
         })
         .then((data) => {
-            console.log(data.articles, "ar")
+
             this.setState({
                 articles : data.articles, 
             })
@@ -53,15 +54,17 @@ class Profile extends React.Component {
     render() {
         const {activeTab} = this.state;
         const {user} = this.props
+      
+        console.log(this.state.articles, "articles")
         return (
             <section >
                 <ProfileBanner user={user} />
                 <div className="container">
                     <div className=" outline-active">
                         <div className="nav-item">
-                            <button className={activeTab === "my" ? 
+                            <button className={activeTab === "author" ? 
                             "active nav-link profile-feed" : "nav-link profile-feed"}
-                            onClick={() => this.handleActive('my')}
+                            onClick={() => this.handleActive('author')}
                             >
                                 My Articles
                             </button>
@@ -83,4 +86,4 @@ class Profile extends React.Component {
     
     }
     
-    export default Profile
+    export default withRouter(Profile)

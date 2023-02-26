@@ -1,26 +1,66 @@
 import React from "react";
+import ToggleFollowButton from "./ToggleFollowButton";
+import { PROFILE_URL } from "./utils/constant";
+import { withRouter } from "react-router-dom";
 
+class ProfileBanner extends React.Component {
 
-function ProfileBanner(props) {
-    let {username, image} = props.user;
-    return (
-        <section className=" profile-banner">
-            <div className="text-center">
-  <figure className="banner-img">
-  <img 
-                
-                src={image}
-                alt={ username}
-                />
-  </figure>
-                <h2>Annie</h2>
+    state = {
+        profile: {},
+        error: null,
+      };
+
+      
+      componentDidMount() {
+        console.log(this.props, "banner")
+        let {username} = this.props.match &&  this.props.match.params;//username from slug
+
+        let {user} = this.props;//current user
+        console.log(username , "username")
+        let token = user ? 'Token ' + user.token : '';
+        fetch(PROFILE_URL + '/' + username, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: token,
+          },
+        })
+          .then((res) => {
+            if (!res.ok) {
+              return Promise.reject('Unable to fetch profile!');
+            }
+            return res.json();
+          })
+          .then((profile) => {
+            console.log(profile, "profile")
+            this.setState({ profile: profile.profile })} )
+          .catch((error) => this.setState({ error }));
+      }
+
+      render() {
+        let {username, image} = this.state.profile;
+        console.log(this.state.profile, "state")
+        return (
+            <section className=" profile-banner">
+                <div className="text-center">
+      <figure className="banner-img">
+      <img 
+                    
+                    src={image}
+                    alt={ username}
+                    />
+      </figure>
+                    <h2>{username}</h2>
+                </div>
+                <div className="text-right pr-60">
+              <ToggleFollowButton
+                profile={this.state.profile}
+              />
             </div>
-            <div className="follow">
-                <p> + Follow  &nbsp;
-               {  username}</p>
-            </div>
-        </section>
-    )
+            </section>
+        )
+      }
+ 
 }
 
-export default ProfileBanner
+export default withRouter(ProfileBanner)

@@ -22,7 +22,7 @@ function Post(props) {
                         </Link>
                         </figure>
                         <div className="info">
-                            <Link className="author" to="/">{author.username}</Link>
+                            <Link className="author" to={`/profile/${author.username}`}>{author.username}</Link>
                             <p className="date-post"> {moment(createdAt).format('ddd MMM D YYYY')}</p>
                         </div>
                     </div>
