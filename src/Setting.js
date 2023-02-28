@@ -82,13 +82,13 @@ class Settings extends React.Component {
     render() {
         let { image, username, bio, email, password, errors } = this.state;
         return (
-            <div class="col-md-6 offset-md-3 col-xs-12 container-sm">
-            <h1 class="text-xs-center text-center">Your Settings</h1>
+            <div className="col-md-6 offset-md-3 col-xs-12 container-sm">
+            <h1 className="text-xs-center text-center">Your Settings</h1>
             <form >
                 <fieldset className="padding padding-left">
                 
                 <input
-                    class="form-control form-control-lg"
+                    className="form-control form-control-lg"
                     type="text" 
                     name="image"
                     placeholder="URL of profile picture"
@@ -99,7 +99,7 @@ class Settings extends React.Component {
                     <span className="text-red-500 block text-center">
                     {errors.username}
                      </span>
-                    <input class="form-control form-control-lg"
+                    <input className="form-control form-control-lg"
                         type="text"
                         name="username"
                         placeholder="Username"
@@ -109,7 +109,7 @@ class Settings extends React.Component {
                 <span className="text-red-500 block text-center">
             {errors.bio}
           </span>
-                    <textarea class="form-control form-control-lg"
+                    <textarea className="form-control form-control-lg"
                         rows="8" 
                         placeholder="Short bio about you"
                         onChange={this.handleChange}
@@ -121,7 +121,7 @@ class Settings extends React.Component {
                     <span className="text-red-500 block text-center">
             {errors.email}
           </span>
-                    <input class="form-control form-control-lg"
+                    <input className="form-control form-control-lg"
                         type="email"
                         placeholder="Email" 
                         value={email}
@@ -131,14 +131,14 @@ class Settings extends React.Component {
                 <span className="text-red-500 block text-center">
             {errors.password}
           </span>
-                    <input class="form-control form-control-lg"
+                    <input className="form-control form-control-lg"
                         type="password"
                         name="password"
                         placeholder="New Password"
                         onChange={this.handleChange}
                         value={password} />
                           
-                <button class="btn btn-lg btn-primary pull-xs-right"
+                <button className="btn btn-lg btn-primary pull-xs-right"
                     type="button"
                     onClick={this.handleSubmit}
                     disabled={errors.email || errors.password}
@@ -147,7 +147,7 @@ class Settings extends React.Component {
             </fieldset>
             </form>
             <hr />
-            <button class="btn btn-setting"
+            <button className="btn btn-setting"
             onClick={this.handleLogout}
             >
                 Or click here to logout.

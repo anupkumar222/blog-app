@@ -25,6 +25,7 @@ for(let i = 1; i <= numberOfPages; i++) {
                         </span>
                 </li>
             ))}
+            
               <p
               className="prev"
             onClick={() => updateCurrentPageIndex(

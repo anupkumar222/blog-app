@@ -73,15 +73,15 @@ class NewPost extends React.Component {
         } = this.state;
 
         return (
-            <div class="editor-page">
-                <div class="container page">
-                    <div class="row">
-                        <div class="col-md-10 offset-md-1 col-xs-12">
+            <div className="editor-page">
+                <div className="container page">
+                    <div className="row">
+                        <div className="col-md-10 offset-md-1 col-xs-12">
                             <form className="newpost-form">
 
                             <span className="error">{errors.title}</span>
                                 <input
-                                    class="form-control "
+                                    className="form-control "
                                     type="text"
                                     placeholder="Article Title"
                                     name="title"
@@ -90,7 +90,7 @@ class NewPost extends React.Component {
                                
                                <span className="error">{errors.description}</span>
                                 <input
-                                    class="form-control"
+                                    className="form-control"
                                     type="text"
                                     placeholder="What's this article about?"
                                     name="description"
@@ -98,7 +98,7 @@ class NewPost extends React.Component {
                                     value={description} />
 
                                 <span className="error">{errors.body}</span>
-                                <textarea class="form-control"
+                                <textarea className="form-control"
                                     rows="8"
                                     placeholder="Write your article (in markdown)"
                                     name="body"
@@ -108,7 +108,7 @@ class NewPost extends React.Component {
                                 </textarea>
 
                                 <span className="error">{errors.tagList}</span>
-                                <input class="form-control"
+                                <input className="form-control"
                                     type="text"
                                     placeholder="Enter tags"
                                     name="tagList"
@@ -116,7 +116,7 @@ class NewPost extends React.Component {
                                     onChange={this.handleChange}
                                 />
 
-                                <input class="btn btn-lg btn-primary"
+                                <input className="btn btn-lg btn-primary"
                                     type="submit"
                                     name="tags"
                                     value='Publish Article'

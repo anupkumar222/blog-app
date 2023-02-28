@@ -12,11 +12,11 @@ class ProfileBanner extends React.Component {
 
       
       componentDidMount() {
-        console.log(this.props, "banner")
+      
         let {username} = this.props.match &&  this.props.match.params;//username from slug
 
         let {user} = this.props;//current user
-        console.log(username , "username")
+   
         let token = user ? 'Token ' + user.token : '';
         fetch(PROFILE_URL + '/' + username, {
           method: 'GET',
@@ -32,14 +32,14 @@ class ProfileBanner extends React.Component {
             return res.json();
           })
           .then((profile) => {
-            console.log(profile, "profile")
+       
             this.setState({ profile: profile.profile })} )
           .catch((error) => this.setState({ error }));
       }
 
       render() {
         let {username, image} = this.state.profile;
-        console.log(this.state.profile, "state")
+       
         return (
             <section className=" profile-banner">
                 <div className="text-center">

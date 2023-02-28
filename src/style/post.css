@@ -1,8 +1,10 @@
 .icon {
+    width: 30%;
 display: flex;
 }
 .info {
     display: block;
+    width: 125%;
     margin-top: 1rem;
     /* margin-left: 1rem; */
 }
@@ -50,4 +52,7 @@ span {
 }
 .article-preview {
     margin: 2rem 0;
+}
+.read-more {
+    color: grey;
 }

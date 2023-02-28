@@ -44,7 +44,7 @@ class AuthHeader extends React.Component {
 
     const username = this.props.username;
 
-    console.log(username, "undef")
+  
     return(
         <nav className="nav-menu">
         <ul className="flex item-center nav-menu">
@@ -65,7 +65,7 @@ class AuthHeader extends React.Component {
             </li>
             <li className="nav-item">
                 <NavLink activeClassName="active" to={`/profile/${username}`}>
-                pprofile
+                Profile
                 </NavLink>
             </li>
         </ul>

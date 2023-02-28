@@ -4,7 +4,7 @@
     list-style: none;
     display: flex;
 }
-.nav-pills .nav-item {
+.nav-pills .nav-link {
     float: left;
     margin-left: 0;
 }
@@ -14,13 +14,15 @@
     color: #5cb85c!important;
 }
 .nav-link {
+    /* width: 15%; */
     border-radius: 0;
     border: none;
     padding-left: 0;
+    margin-left: 0.5rem
 }
 .nav-link.active  {
     cursor: default;
 }
-.nav-item {
+/* .nav-item {
     width: 210px;
-}
+} */

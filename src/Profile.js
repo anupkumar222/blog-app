@@ -20,7 +20,7 @@ class Profile extends React.Component {
     }
 
     fetchData = () => {
-        // console.log(this.props, "match")
+
         fetch(articlesURL + `/?${this.state.activeTab}=${this.props.match.params.username}`, {
             method: 'GET',
             headers: {
@@ -54,8 +54,6 @@ class Profile extends React.Component {
     render() {
         const {activeTab} = this.state;
         const {user} = this.props
-      
-        console.log(this.state.articles, "articles")
         return (
             <section >
                 <ProfileBanner user={user} />
@@ -77,6 +75,7 @@ class Profile extends React.Component {
                         </div>
                         <Posts articles={this.state.articles} />
                         <Pagination />
+                        
                     </div>
                 </div>
             </section>

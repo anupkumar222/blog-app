@@ -61,7 +61,7 @@ h1 {
 }
 
 .nav-item {
-  width: 150px;
+  
   font-size: 1.2rem;
   margin-left: 1.5rem;
  
@@ -80,9 +80,8 @@ h1 {
 
 /* signup */
 
-.form {
-  width: 50%;
-  margin: 2rem auto;
+.signup {
+  
 }
 .form-group {
   margin-bottom: 1rem;
@@ -189,7 +188,7 @@ input[type="submit"]:disabled {
 /* profile page */
 
 .profile-banner {
-  padding-bottom: 4rem;
+  padding-bottom: 1rem;
   margin-bottom: 2rem;
   background-color: #dfeaf3;
   /* margin: 2rem 0; */
@@ -212,16 +211,16 @@ img {
   width: 100%;
 }
 .profile-img {
-  width: 15%;
+  width: 35%;
  
 }
 .banner-img {
-  width: 10%;
+  width: 5%;
   padding-top: 2rem;
   margin: 0 auto;
 }
 .profile-feed {
-
+  font-size: 1.1rem;
   font-weight: 700;
   background-color: white;
   text-decoration: underline;

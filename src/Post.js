@@ -11,7 +11,7 @@ function Post(props) {
                 <div className="article-meta flex justify-between">
                     <div className="icon">
                     <figure className="profile-img">
-                        <Link to="/">
+                        {/* <Link to="/"> */}
                             
                                 <img
                                     src={author.image || `/smiley.jpg`
@@ -19,7 +19,7 @@ function Post(props) {
                                     alt={author.username}
                                 />
                             
-                        </Link>
+                        {/* </Link> */}
                         </figure>
                         <div className="info">
                             <Link className="author" to={`/profile/${author.username}`}>{author.username}</Link>
@@ -35,8 +35,8 @@ function Post(props) {
                 <Link className="preview-link" to={`/article/${slug}`}>
                     <h4>{title}</h4>
                     <p>{description}</p>
-                    <div className="flex justify-between">
-                        <Link to={`/article/${slug}`}>Read more...</Link>
+                    <div className="flex justify-between ">
+                        <Link className="read-more" to={`/article/${slug}`}>Read more....</Link>
                         <ul className="tag-list flex justify-between">
                             {tagList.map((tag) => (
                                 <li className="tag-default">{tag}</li>

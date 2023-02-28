@@ -12,7 +12,7 @@ export default class ToggleFollowButton extends Component {
   };
  
   componentDidMount() {
-    console.log(this.props, "props")
+
     if(this.props.profile && this.props.profile.following) {
         this.setState({ following: this.props.profile.following });
     }

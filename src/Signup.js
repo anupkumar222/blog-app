@@ -53,16 +53,18 @@ class Signup extends React.Component {
     render() {
         let {username, email, password, errors} = this.state
         return (
-            <div className="container">
+            <div className="container ">
                 <center>
                     <h2>Sign up</h2>
                     <p>Have an account?</p>
                 </center>
+                <div className="form-1">
                 <form 
-                className="form"
+            
                 onSubmit={this.handleSubmit}
                 >
-                <span className="error">{errors.username}</span>
+                    
+                    <span className="error">{errors.username}</span>
                         <input 
                         name="username"
                         type="username" 
@@ -97,9 +99,11 @@ class Signup extends React.Component {
                     disabled={errors.email || errors.password || errors.username}
                     />
                         
+                    
+      
                         
                 </form>
-    
+                </div>
     
             </div>
         )
